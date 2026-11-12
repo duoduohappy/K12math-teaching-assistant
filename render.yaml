@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: zhixu-k12-teaching
+    runtime: python
+    plan: free
+    buildCommand: python -m compileall -q .
+    startCommand: python cloud_start.py
+    healthCheckPath: /health
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: DEMO_TEACHER_PASSWORD
+        sync: false
